@@ -1,0 +1,112 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "LocalAI": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "LocalAI",
+      "options": {
+        "baseURL": "http://127.0.0.1:11451/v1"
+      },
+      "models": {
+        "o1-mini": {
+          "name": "o1-mini",
+          "limit": {
+            "context": 131072,
+            "output": 65536
+          }
+        },
+        "qwen3-flash": {
+          "name": "qwen3-flash",
+          "limit": {
+            "context": 131072,
+            "output": 32768
+          }
+        },
+        "qwen3-coder-next": {
+          "name": "qwen3-coder-next",
+          "limit": {
+            "context": 131072,
+            "output": 65536
+          }
+        }
+      }
+    },
+    "google": {
+      "models": {
+        "gemini-3-flash-preview": {
+          "options": {
+            "thinkingConfig": {
+              "thinkingLevel": "high",
+              "includeThoughts": "allow"
+            }
+          }
+        },
+        "gemini-3-pro-preview": {
+          "options": {
+            "thinkingConfig": {
+              "thinkingLevel": "high",
+              "includeThoughts": "allow"
+            }
+          }
+        }
+      }
+    }
+  },
+  // 插件
+  "plugin": [
+    "file:///usr/lib/opencode/plugins/opencode-gemini-auth", // 需安装 opencode-gemini-auth
+    "file:///usr/lib/opencode/plugins/opencode-notifier", // 需安装 opencode-notifier
+    "file:///usr/lib/opencode/plugins/opencode-md-table-formatter" // 自动格式化 md 表格
+  ],
+  // 默认 agent
+  "default_agent": "CLI-Copilot",
+  // mcp server
+  "mcp": {},
+  // TUI 界面设置
+  "tui": {
+    "scroll_speed": 3,
+    "scroll_acceleration": {
+      "enabled": true
+    },
+    "diff_style": "auto"
+  },
+  "theme": "system",
+  // 工具使用权限
+  "permission": {
+    "bash": "ask",
+    "edit": "allow",
+    "read": "allow",
+    "grep": "allow",
+    "glob": "allow",
+    "lsp": "allow",
+    "skill": "allow",
+    "todoread": "allow",
+    "webfetch": "allow",
+    "websearch": "allow",
+    "question": "allow"
+  },
+  // 禁用自动更新, 仅从 AUR 更新
+  "autoupdate": false,
+  // 上下文自动压缩
+  "compaction": {
+    "auto": true,
+    "prune": true,
+    "reserved": 16384
+  },
+  // 忽略常变动的目录
+  "watcher": {
+    "ignore": [
+      "node_modules/**",
+      "dist/**",
+      ".git/**"
+    ]
+  },
+  "agent": {
+    "plan": {
+      "mode": "primary",
+      "permission": {
+        "skill": "allow"
+      }
+    }
+  }
+}
