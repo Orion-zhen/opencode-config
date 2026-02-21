@@ -59,7 +59,7 @@
     "file:///usr/lib/opencode/plugins/opencode-md-table-formatter" // 自动格式化 md 表格
   ],
   // 默认 agent
-  "default_agent": "CLI-Copilot",
+  "default_agent": "copilot",
   // mcp server
   "mcp": {},
   // TUI 界面设置
@@ -103,6 +103,8 @@
     ]
   },
   "agent": {
+    // 默认 agent 的提示词写得稀烂
+    // 全部禁用
     "build": {
       "disable": true
     },
