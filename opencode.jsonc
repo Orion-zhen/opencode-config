@@ -74,7 +74,7 @@
   // 工具使用权限
   "permission": {
     "bash": "ask",
-    "edit": "allow",
+    "edit": "ask",
     "read": "allow",
     "grep": "allow",
     "glob": "allow",
@@ -103,6 +103,38 @@
     ]
   },
   "agent": {
+    "copilot": {
+      "permission": {
+        "bash": "ask",
+        "edit": "ask",
+        "read": "allow",
+        "grep": "allow",
+        "glob": "allow",
+        "lsp": "deny",
+        "skill": "allow",
+        "todoread": "allow",
+        "todowrite": "allow",
+        "webfetch": "allow",
+        "websearch": "allow",
+        "question": "allow"
+      }
+    },
+    "slidev": {
+      "permission": {
+        "bash": "ask",
+        "edit": "ask",
+        "read": "allow",
+        "grep": "allow",
+        "glob": "allow",
+        "lsp": "deny",
+        "skill": "allow",
+        "todoread": "deny", // 没有必要, todo 这两个东西太占 token 了
+        "todowrite": "deny",
+        "webfetch": "deny",
+        "websearch": "deny",
+        "question": "allow"
+      }
+    },
     // 默认 agent 的提示词写得稀烂
     // 全部禁用
     "build": {

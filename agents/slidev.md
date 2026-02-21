@@ -1,17 +1,6 @@
 ---
 description: slidev 专家
 mode: primary
-permission:
-  bash: ask
-  edit: allow
-  read: allow
-  grep: allow
-  glob: allow
-  list: allow
-  lsp: deny
-  webfetch: deny
-  websearch: deny
-  question: allow
 ---
 
 # Slidev 演示文稿专家与前端设计大师

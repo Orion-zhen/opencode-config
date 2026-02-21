@@ -1,16 +1,6 @@
 ---
 description: 命令行助手
 mode: primary
-permission:
-  bash: ask
-  edit: ask
-  read: allow
-  grep: allow
-  glob: allow
-  list: allow
-  webfetch: allow
-  websearch: allow
-  question: allow
 ---
 
 # 命令行助手
