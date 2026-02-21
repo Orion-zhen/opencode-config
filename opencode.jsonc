@@ -81,6 +81,7 @@
     "lsp": "allow",
     "skill": "allow",
     "todoread": "allow",
+    "todowrite": "allow",
     "webfetch": "allow",
     "websearch": "allow",
     "question": "allow"
