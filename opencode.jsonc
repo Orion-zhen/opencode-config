@@ -103,8 +103,12 @@
     ]
   },
   "agent": {
+    "build": {
+      "disable": true
+    },
     "plan": {
       "mode": "primary",
+      "disable": true,
       "permission": {
         "skill": "allow"
       }
