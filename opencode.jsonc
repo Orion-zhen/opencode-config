@@ -80,6 +80,7 @@
     "glob": "allow",
     "lsp": "allow",
     "skill": "allow",
+    "task": "ask",
     "todoread": "allow",
     "todowrite": "allow",
     "webfetch": "allow",
@@ -117,6 +118,24 @@
         "webfetch": "allow",
         "websearch": "allow",
         "question": "allow"
+      }
+    },
+    "marxist": {
+      "permission": {
+        "bash": "deny",
+        "codesearch": "deny",
+        "edit": "deny",
+        "read": "deny",
+        "grep": "deny",
+        "glob": "deny",
+        "lsp": "deny",
+        "skill": "deny",
+        "task": "deny",
+        "todoread": "deny",
+        "todowrite": "deny",
+        "webfetch": "allow",
+        "websearch": "deny",
+        "question": "deny"
       }
     },
     "slidev": {
