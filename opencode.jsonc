@@ -28,25 +28,26 @@
             "context": 131072,
             "output": 65536
           }
-        }
-      }
-    },
-    "google": {
-      "models": {
-        "gemini-3-flash-preview": {
-          "options": {
-            "thinkingConfig": {
-              "thinkingLevel": "high",
-              "includeThoughts": "allow"
-            }
+        },
+        "qwen3.5-plus": {
+          "name": "qwen3.5-plus",
+          "limit": {
+            "context": 65536,
+            "output": 32768
           }
         },
-        "gemini-3-pro-preview": {
-          "options": {
-            "thinkingConfig": {
-              "thinkingLevel": "high",
-              "includeThoughts": "allow"
-            }
+        "qwen3.5-plus-instruct": {
+          "name": "qwen3.5-plus-instruct",
+          "limit": {
+            "context": 65536,
+            "output": 32768
+          }
+        },
+        "step3.5-flash": {
+          "name": "step3.5-flash",
+          "limit": {
+            "context": 65536,
+            "output": 32768
           }
         }
       }
