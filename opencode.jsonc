@@ -78,6 +78,7 @@
     "read": "allow",
     "grep": "allow",
     "glob": "allow",
+    "list": "allow",
     "lsp": "allow",
     "skill": "allow",
     "task": "ask",
@@ -107,16 +108,20 @@
     "copilot": {
       "permission": {
         "bash": "ask",
-        "edit": "ask",
+        "codesearch": "deny",
+        "edit": "deny",
         "read": "allow",
         "grep": "allow",
         "glob": "allow",
+        "list": "deny", // 基本触发不成功, 被 `ls` 遮盖了
         "lsp": "deny",
         "skill": "allow",
+        "task": "deny",
         "todoread": "allow",
         "todowrite": "allow",
         "webfetch": "allow",
         "websearch": "allow",
+        "write": "deny",
         "question": "allow"
       }
     },
@@ -128,6 +133,7 @@
         "read": "deny",
         "grep": "deny",
         "glob": "deny",
+        "list": "deny",
         "lsp": "deny",
         "skill": "deny",
         "task": "deny",
@@ -145,6 +151,7 @@
         "read": "allow",
         "grep": "allow",
         "glob": "allow",
+        "list": "allow",
         "lsp": "deny",
         "skill": "allow",
         "todoread": "deny", // 没有必要, todo 这两个东西太占 token 了
