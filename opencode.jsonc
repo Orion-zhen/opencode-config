@@ -8,15 +8,8 @@
         "baseURL": "http://127.0.0.1:11451/v1"
       },
       "models": {
-        "o1-mini": {
-          "name": "o1-mini",
-          "limit": {
-            "context": 131072,
-            "output": 65536
-          }
-        },
-        "qwen3-flash": {
-          "name": "qwen3-flash",
+        "qwen3.5-flash": {
+          "name": "qwen3.5-flash",
           "limit": {
             "context": 131072,
             "output": 32768
@@ -42,20 +35,12 @@
             "context": 65536,
             "output": 32768
           }
-        },
-        "step3.5-flash": {
-          "name": "step3.5-flash",
-          "limit": {
-            "context": 65536,
-            "output": 32768
-          }
         }
       }
     }
   },
   // 插件
   "plugin": [
-    "file:///usr/lib/opencode/plugins/opencode-gemini-auth", // 需安装 opencode-gemini-auth
     "file:///usr/lib/opencode/plugins/opencode-notifier", // 需安装 opencode-notifier
     "file:///usr/lib/opencode/plugins/opencode-md-table-formatter" // 自动格式化 md 表格
   ],
@@ -113,7 +98,7 @@
         "edit": "deny",
         "read": "allow",
         "grep": "allow",
-        "glob": "allow",
+        "glob": "deny",
         "list": "deny", // 基本触发不成功, 被 `ls` 遮盖了
         "lsp": "deny",
         "skill": "allow",
@@ -121,7 +106,7 @@
         "todoread": "allow",
         "todowrite": "allow",
         "webfetch": "allow",
-        "websearch": "allow",
+        "websearch": "deny",
         "write": "deny",
         "question": "allow"
       }
