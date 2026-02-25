@@ -10,6 +10,10 @@
       "models": {
         "qwen3.5-flash": {
           "name": "qwen3.5-flash",
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          },
           "limit": {
             "context": 131072,
             "output": 32768
@@ -24,15 +28,23 @@
         },
         "qwen3.5-plus": {
           "name": "qwen3.5-plus",
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          },
           "limit": {
-            "context": 65536,
+            "context": 131072,
             "output": 32768
           }
         },
         "qwen3.5-plus-instruct": {
           "name": "qwen3.5-plus-instruct",
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          },
           "limit": {
-            "context": 65536,
+            "context": 131072,
             "output": 32768
           }
         }
