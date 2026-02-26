@@ -59,7 +59,13 @@
   // 默认 agent
   "default_agent": "copilot",
   // mcp server
-  "mcp": {},
+  "mcp": {
+    "arch-linux": {
+      "type": "local",
+      "timeout": 30000, // 30s
+      "command": ["uvx", "arch-ops-server"]
+    }
+  },
   // TUI 界面设置
   "tui": {
     "scroll_speed": 3,
