@@ -23,7 +23,7 @@
       "notification": true
     },
     "complete": {
-      "sound": true,
+      "sound": false,
       "notification": true
     },
     "subagent_complete": {
