@@ -8,8 +8,24 @@
         "baseURL": "{env:LAB_SERVER_URL}"
       },
       "models": {
-        "qwen3.5-flash": {
-          "name": "qwen3.5-flash",
+        "qwen3.5-plus": {
+          "name": "qwen3.5-plus",
+          "modalities": {
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          },
+          "limit": {
+            "context": 131072,
+            "output": 32768
+          }
+        },
+        "qwen3.5-plus-codex": {
+          "name": "qwen3.5-plus-codex",
           "modalities": {
             "input": [
               "text",
@@ -30,7 +46,8 @@
   // 插件
   "plugin": [
     "file:///usr/lib/opencode/plugins/opencode-notifier", // 需安装 opencode-notifier
-    "file:///usr/lib/opencode/plugins/opencode-md-table-formatter" // 自动格式化 md 表格
+    "file:///usr/lib/opencode/plugins/opencode-md-table-formatter", // 自动格式化 md 表格
+    "file:///usr/lib/opencode/plugins/opencode-dynamic-context-pruning", // 需安装 opencode-dynamic-context-pruning
   ],
   // 默认 agent
   "default_agent": "copilot",
@@ -55,24 +72,18 @@
       "environment": {
         "DEFAULT_SEARCH_ENGINE": "brave"
       }
+    },
+    "deepwiki": {
+      "type": "remote",
+      "url": "https://mcp.deepwiki.com/mcp"
     }
   },
+  "lsp": {},
   // 工具使用权限
   "permission": {
-    "bash": "deny",
-    "codesearch": "deny",
-    "edit": "deny",
-    "read": "deny",
-    "grep": "deny",
-    "glob": "deny",
-    "lsp": "deny",
-    "skill": "deny",
-    "task": "deny",
-    "todoread": "deny",
-    "todowrite": "deny",
-    "webfetch": "deny",
-    "websearch": "deny",
-    "question": "deny"
+    "*": "deny",
+    "doom_loop": "ask",
+    "external_directory": "ask"
   },
   // 禁用自动更新, 仅从 AUR 更新
   "autoupdate": false,
@@ -91,15 +102,85 @@
     ]
   },
   "agent": {
+    "empty": {
+      "permission": {
+        "read": "allow"
+      }
+    },
+    "professor": {
+      "permission": {
+        "task": {
+          "*": "deny",
+          "repo-navigator": "allow",
+          "code-retriever": "allow",
+          "damn-editor": "allow"
+        },
+        "write": "allow",
+        "read": "allow"
+      }
+    },
+    "executor": {
+      "permission": {
+        "todowrite": "allow",
+        "task": {
+          "*": "deny",
+          "repo-navigator": "allow",
+          "code-retriever": "allow",
+          "typewriter": "allow",
+          "verifier": "allow",
+        },
+        "read": "allow"
+      }
+    },
+    "repo-navigator": {
+      "permission": {
+        "read": "allow"
+      }
+    },
+    "code-retriever": {
+      "permission": {
+        "read": "allow",
+        "glob": "allow",
+        "grep": "allow"
+      }
+    },
+    "damn-editor": {
+      "permission": {
+        "read": "allow",
+        "glob": "allow",
+        "grep": "allow"
+      }
+    },
+    "typewriter": {
+      "permission": {
+        "read": "allow",
+        "grep": "allow",
+        "edit": "allow",
+        "lsp": "allow",
+        "codesearch": "allow",
+        "deepwiki_ask_question": "allow"
+      }
+    },
+    "verifier": {
+      "permission": {
+        "read": "allow",
+        "grep": "allow",
+        "bash": "allow"
+      }
+    },
     "copilot": {
       "permission": {
+        "arch-linux*": "allow",
+        "open-websearch*": "allow",
         "bash": "ask",
         "read": "allow",
         "grep": "allow",
-        "skill": "allow",
+        "skill": {
+          "*": "allow",
+          "slidev*": "deny"
+        },
         "todoread": "allow",
         "todowrite": "allow",
-        // "webfetch": "allow",
         "question": "allow"
       }
     },
@@ -111,8 +192,10 @@
         "read": "allow",
         "grep": "allow",
         "glob": "allow",
-        "list": "allow",
-        "skill": "allow",
+        "skill": {
+          "*": "deny",
+          "slidev*": "allow"
+        },
         "question": "allow"
       }
     },
@@ -127,6 +210,12 @@
       "permission": {
         "skill": "allow"
       }
+    },
+    "explore": {
+      "disable": true
+    },
+    "general": {
+      "disable": true
     }
   }
 }
