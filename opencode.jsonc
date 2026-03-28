@@ -53,14 +53,6 @@
   "default_agent": "copilot",
   // mcp server
   "mcp": {
-    "arch-linux": {
-      "type": "local",
-      "timeout": 30000, // 30s
-      "command": [
-        "uvx",
-        "arch-ops-server"
-      ]
-    },
     "open-websearch": {
       "type": "local",
       "timeout": 30000,
@@ -170,17 +162,14 @@
     },
     "copilot": {
       "permission": {
-        "arch-linux*": "allow",
+        "websearch": "allow",
         "open-websearch*": "allow",
         "bash": "ask",
         "read": "allow",
-        "grep": "allow",
         "skill": {
           "*": "allow",
           "slidev*": "deny"
         },
-        "todoread": "allow",
-        "todowrite": "allow",
         "question": "allow"
       }
     },
